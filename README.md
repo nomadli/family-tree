@@ -1,4 +1,4 @@
-<h1 align="center">Family Tree Editor</h1>
+<h1 align="center">Family Tree</h1>
 
 <p align="center">
   <a href="#buildstatus">
