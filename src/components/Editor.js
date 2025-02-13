@@ -187,7 +187,7 @@ class Editor extends Component {
   render() {
     return (
       <div className="column-left flex-container-vertical">
-        <h2 className="title flex-conservative">Nomadli Family Tree v{version}</h2>
+        <h2 className="title flex-conservative">李强的族谱 v{version}</h2>
 
         <Tabs className="controls-container flex-container-vertical flex-greedy">
           <TabList className="flex-conservative">

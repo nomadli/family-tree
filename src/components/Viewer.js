@@ -68,8 +68,7 @@ class Viewer extends Component {
       <div className="column-right">
         <div className="tree-stats-container">
           <h2>{configurations.title}</h2>
-          {countNodes(0, Array.isArray(tree) ? tree[0] : tree)} family members.<br/>
-          <span style={{color: 'gray'}}>Click a member to expand descendants. Click and drag to navigate.</span>
+          {countNodes(0, Array.isArray(tree) ? tree[0] : tree)} 位家族成员.<br/>
         </div>
         <div ref={tc => (this.treeContainer = tc)} className="tree-container">
           <Tree
