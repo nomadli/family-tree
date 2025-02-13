@@ -12,17 +12,28 @@
             "attributes": null,
             "children": [
               {
-                "name": "李养荣 贺氏",
-                "attributes": null,
+                "name": "李养荣",
+                "attributes": {
+                  "妻子": "贺氏"
+                },
                 "children": [
                   {
-                    "name": "李愈秀 牛李史氏",
-                    "attributes": null,
+                    "name": "李愈秀",
+                    "attributes": {
+                      "妻子1": "牛氏",
+                      "妻子2": "李氏",
+                      "妻子3": "史氏"
+                    },
                     "children": null
                   },
                   {
-                    "name": "李愈华 田牛宋王氏",
-                    "attributes": null,
+                    "name": "李愈华",
+                    "attributes": {
+                      "妻子1": "田氏",
+                      "妻子2": "牛氏",
+                      "妻子3": "宋氏",
+                      "妻子4": "王氏"
+                    },
                     "children": [
                       {
                         "name": "李呈藻",
@@ -30,8 +41,12 @@
                         "children": null
                       },
                       {
-                        "name": "李呈祥 刘郭苏氏",
-                        "attributes": null,
+                        "name": "李呈祥",
+                        "attributes": {
+                          "妻子1": "刘氏",
+                          "妻子2": "郭氏",
+                          "妻子3": "苏氏"
+                        },
                         "children": [
                           {
                             "name": "李连云",
@@ -50,25 +65,35 @@
                                         "attributes": null,
                                         "children": [
                                           {
-                                            "name": "李庆龄 周氏",
-                                            "attributes": null,
+                                            "name": "李庆龄",
+                                            "attributes": {
+                                              "妻子": "周氏"
+                                            },
                                             "children": null
                                           },
                                           {
-                                            "name": "李庆松 郭氏",
-                                            "attributes": null,
+                                            "name": "李庆松",
+                                            "attributes": {
+                                              "妻子": "郭氏"
+                                            },
                                             "children": [
                                               {
-                                                "name": "李培基 刘俊芳",
-                                                "attributes": null,
+                                                "name": "李培基",
+                                                "attributes": {
+                                                  "妻子": "刘俊芳"
+                                                },
                                                 "children": [
                                                   {
-                                                    "name": "李珉 冯秋英",
-                                                    "attributes": null,
+                                                    "name": "李珉",
+                                                    "attributes": {
+                                                      "妻子": "冯秋英"
+                                                    },
                                                     "children": [
                                                       {
-                                                        "name": "李燕第 张颖云",
-                                                        "attributes": null,
+                                                        "name": "李燕第",
+                                                        "attributes": {
+                                                          "妻子": "张颖云"
+                                                        },
                                                         "children": [
                                                           {
                                                             "name": "李翔洲",
@@ -84,48 +109,71 @@
                                                                     "children": null
                                                                   },
                                                                   {
-                                                                    "name": "李诗良 张氏",
-                                                                    "attributes": null,
+                                                                    "name": "李诗良",
+                                                                    "attributes": {
+                                                                      "妻子": "张氏"
+                                                                    },
                                                                     "children": [
                                                                       {
-                                                                        "name": "李维民 张氏",
-                                                                        "attributes": null,
+                                                                        "name": "李维民",
+                                                                        "attributes": {
+                                                                          "妻子": "张氏"
+                                                                        },
                                                                         "children": [
                                                                           {
-                                                                            "name": "李天福 张曹氏",
-                                                                            "attributes": null,
+                                                                            "name": "李天福",
+                                                                            "attributes": {
+                                                                              "妻子1": "张氏",
+                                                                              "妻子2": "曹氏"
+                                                                            },
                                                                             "children": null
                                                                           },
                                                                           {
-                                                                            "name": "李天禄 宋氏3",
-                                                                            "attributes": null,
+                                                                            "name": "李天禄",
+                                                                            "attributes": {
+                                                                              "妻子1": "宋氏",
+                                                                              "妻子2": "宋氏",
+                                                                              "妻子3": "宋氏"
+                                                                            },
                                                                             "children": null
                                                                           },
                                                                           {
-                                                                            "name": "李天祯 卫记梅",
-                                                                            "attributes": null,
+                                                                            "name": "李天祯",
+                                                                            "attributes": {
+                                                                              "妻子": "卫记梅"
+                                                                            },
                                                                             "children": [
                                                                               {
-                                                                                "name": "李双根 张芳巧",
-                                                                                "attributes": null,
+                                                                                "name": "李双根",
+                                                                                "attributes": {
+                                                                                  "妻子": "张芳巧"
+                                                                                },
                                                                                 "children": [
                                                                                   {
-                                                                                    "name": "李九贵 解青英",
-                                                                                    "attributes": null,
+                                                                                    "name": "李九贵",
+                                                                                    "attributes": {
+                                                                                      "妻子": "解青英"
+                                                                                    },
                                                                                     "children": [
                                                                                       {
-                                                                                        "name": "李娟 刘兰保",
-                                                                                        "attributes": null,
+                                                                                        "name": "李娟",
+                                                                                        "attributes": {
+                                                                                          "丈夫": "刘兰保"
+                                                                                        },
                                                                                         "children": null
                                                                                       },
                                                                                       {
-                                                                                        "name": "李婷 贾润斌",
-                                                                                        "attributes": null,
+                                                                                        "name": "李婷",
+                                                                                        "attributes": {
+                                                                                          "丈夫": "贾润斌"
+                                                                                        },
                                                                                         "children": null
                                                                                       },
                                                                                       {
-                                                                                        "name": "李强 宋永丽",
-                                                                                        "attributes": null,
+                                                                                        "name": "李强",
+                                                                                        "attributes": {
+                                                                                          "妻子": "宋永丽"
+                                                                                        },
                                                                                         "children": [
                                                                                           {
                                                                                             "name": "李欣雨",
@@ -137,22 +185,30 @@
                                                                                     ]
                                                                                   },
                                                                                   {
-                                                                                    "name": "李俊兰 肖保生",
-                                                                                    "attributes": null,
+                                                                                    "name": "李俊兰",
+                                                                                    "attributes": {
+                                                                                      "丈夫": "肖保生"
+                                                                                    },
                                                                                     "children": null
                                                                                   },
                                                                                   {
-                                                                                    "name": "李俊贵 牛秋爱",
-                                                                                    "attributes": null,
+                                                                                    "name": "李俊贵",
+                                                                                    "attributes": {
+                                                                                      "妻子": "牛秋爱"
+                                                                                    },
                                                                                     "children": [
                                                                                       {
-                                                                                        "name": "李金鑫 李二俊",
-                                                                                        "attributes": null,
+                                                                                        "name": "李金鑫",
+                                                                                        "attributes": {
+                                                                                          "丈夫": "李二俊"
+                                                                                        },
                                                                                         "children": null
                                                                                       },
                                                                                       {
-                                                                                        "name": "李苗苗 任勇勇",
-                                                                                        "attributes": null,
+                                                                                        "name": "李苗苗",
+                                                                                        "attributes": {
+                                                                                          "丈夫": "任勇勇"
+                                                                                        },
                                                                                         "children": null
                                                                                       },
                                                                                       {
@@ -163,8 +219,10 @@
                                                                                     ]
                                                                                   },
                                                                                   {
-                                                                                    "name": "李文贵 李忠梅",
-                                                                                    "attributes": null,
+                                                                                    "name": "李文贵",
+                                                                                    "attributes": {
+                                                                                      "妻子": "李忠梅"
+                                                                                    },
                                                                                     "children": [
                                                                                       {
                                                                                         "name": "李哲",
@@ -179,29 +237,37 @@
                                                                                     ]
                                                                                   },
                                                                                   {
-                                                                                    "name": "李小兰 卫录生",
-                                                                                    "attributes": null,
+                                                                                    "name": "李小兰",
+                                                                                    "attributes": {
+                                                                                      "丈夫": "卫录生"
+                                                                                    },
                                                                                     "children": null
                                                                                   }
                                                                                 ]
                                                                               },
                                                                               {
-                                                                                "name": "李然根 韩行慧",
-                                                                                "attributes": null,
+                                                                                "name": "李然根",
+                                                                                "attributes": {
+                                                                                  "妻子": "韩行慧"
+                                                                                },
                                                                                 "children": null
                                                                               }
                                                                             ]
                                                                           },
                                                                           {
-                                                                            "name": "李天祥 冯氏",
-                                                                            "attributes": null,
+                                                                            "name": "李天祥",
+                                                                            "attributes": {
+                                                                              "妻子": "冯氏"
+                                                                            },
                                                                             "children": null
                                                                           }
                                                                         ]
                                                                       },
                                                                       {
-                                                                        "name": "李谓还 刘氏",
-                                                                        "attributes": null,
+                                                                        "name": "李谓还",
+                                                                        "attributes": {
+                                                                          "妻子": "刘氏"
+                                                                        },
                                                                         "children": null
                                                                       }
                                                                     ]
