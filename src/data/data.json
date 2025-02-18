@@ -152,9 +152,9 @@
                                                                                   {
                                                                                     "name": "李九贵",
                                                                                     "attributes": {
+                                                                                      "生日": "1951年03月08日",
                                                                                       "妻子": "解青英",
-                                                                                      "妻子生日": "1951年07月20日",
-                                                                                      "生日": "1951年03月08日"
+                                                                                      "妻子生日": "1951年07月20日"
                                                                                     },
                                                                                     "children": [
                                                                                       {
@@ -378,11 +378,11 @@
     "orientation": "vertical",
     "translateX": 637.52783203125,
     "translateY": 546.6666870117188,
-    "pathFunc": "diagonal",
+    "pathFunc": "step",
     "renderCustomNodeElement": "svg",
     "collapsible": true,
     "shouldCollapseNeighborNodes": false,
-    "initialDepth": 1,
+    "initialDepth": 23,
     "depthFactor": null,
     "zoomable": true,
     "zoom": 1,

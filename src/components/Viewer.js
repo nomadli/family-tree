@@ -24,7 +24,7 @@ const customNodeFnMapping = {
       <PureSvgNodeElement
         nodeDatum={rd3tProps.nodeDatum}
         toggleNode={rd3tProps.toggleNode}
-        orientation={configs.orientation}
+        orientation={configs.orientation} //horizontal vertical
       />
     ),
   },
@@ -77,12 +77,12 @@ class Viewer extends Component {
               configurations.renderCustomNodeElement
                 ? rd3tProps => customNodeFnMapping[configurations.renderCustomNodeElement].fn(rd3tProps, configurations)
                 : undefined
-            }
+            } //mixed svg
             rootNodeClassName="demo-node"
             branchNodeClassName="demo-node"
             orientation={configurations.orientation}
             translate={{x: this.state.translateX, y: this.state.translateY}}
-            pathFunc={configurations.pathFunc}
+            pathFunc={configurations.pathFunc} //step diagonal elbow straight
             collapsible={configurations.collapsible}
             initialDepth={configurations.initialDepth}
             zoomable={configurations.zoomable}
