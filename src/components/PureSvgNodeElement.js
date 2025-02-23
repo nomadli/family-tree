@@ -11,12 +11,12 @@ class Family extends React.Component {
     );
   };
 
-  nameNode = (node, bgcolor, ransform) => {
+  nameNode = (node, bgcolor, transform) => {
     return (
       <React.Fragment>
-        <circle cx={ransform.x} cy={ransform.y} r={50} fill={bgcolor} stroke={bgcolor} />
+        <circle cx={transform.x} cy={transform.y} r={50} fill={bgcolor} stroke={bgcolor} />
         <g className="rd3t-label">
-          <text className="rd3t-label__title" x={ransform.x} y={5 + ransform.y} textAnchor="middle">
+          <text className="rd3t-label__title" x={transform.x} y={5 + transform.y} textAnchor="middle">
             {node.name}
           </text>
         </g>
@@ -24,19 +24,19 @@ class Family extends React.Component {
     );
   };
 
-  imageNode = (node, bgcolor, ransform) => {
+  imageNode = (node, bgcolor, transform) => {
     return (
       <React.Fragment>
         <defs>
-          <clipPath id="circleView">
-            <circle cx={1 + ransform.x} cy={1 + ransform.y} r="49" />
+          <clipPath id={node.id}>
+            <circle cx={transform.x} cy={transform.y} r={50} />
           </clipPath>
         </defs>
 
-        <circle cx={ransform.x} cy={ransform.y} r={50} fill={"transparent"} stroke={bgcolor} />
-        <image href={`${process.env.PUBLIC_URL}/img/${node.image}`} x={-50 + ransform.x} y={-50 + ransform.y} height={100} width={100} clipPath="url(#circleView)" />
+        <circle cx={transform.x} cy={transform.y} r={50} fill={"transparent"} stroke={bgcolor} />
+        <image href={`${process.env.PUBLIC_URL}/img/${node.image}`} x={-50 + transform.x} y={-50 + transform.y} height={100} width={100} clipPath={"url(#"+node.id+")"} />
         <g className="rd3t-label">
-          <text className="rd3t-label__title" x={ransform.x} y={-60+ransform.y} textAnchor="middle">
+          <text className="rd3t-label__title" x={transform.x} y={-60+transform.y} textAnchor="middle">
             {node.name}
           </text>
         </g>

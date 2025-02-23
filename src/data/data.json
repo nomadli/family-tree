@@ -377,7 +377,7 @@
                                                                           },
                                                                           {
                                                                             "id": 190030,
-                                                                            "image": "",
+                                                                            "image": "zp019003s.png",
                                                                             "name": "李天祯",
                                                                             "birthday": "",
                                                                             "death": "未知",
@@ -397,7 +397,7 @@
                                                                             "children": [
                                                                               {
                                                                                 "id": 200010,
-                                                                                "image": "",
+                                                                                "image": "zp020001s.png",
                                                                                 "name": "李双根",
                                                                                 "birthday": "",
                                                                                 "death": "未知",
@@ -405,7 +405,7 @@
                                                                                 "biography": "",
                                                                                 "partner": {
                                                                                   "id": 200011,
-                                                                                  "image": "",
+                                                                                  "image": "zp020001p.png",
                                                                                   "name": "张芳巧",
                                                                                   "birthday": "",
                                                                                   "death": "未知",
@@ -417,7 +417,7 @@
                                                                                 "children": [
                                                                                   {
                                                                                     "id": 210010,
-                                                                                    "image": "",
+                                                                                    "image": "zp021001s.png",
                                                                                     "name": "李九贵",
                                                                                     "birthday": "1951年03月08日",
                                                                                     "death": "",
@@ -425,7 +425,7 @@
                                                                                     "biography": "",
                                                                                     "partner": {
                                                                                       "id": 210011,
-                                                                                      "image": "",
+                                                                                      "image": "zp021001p.png",
                                                                                       "name": "解青英",
                                                                                       "birthday": "1951年07月20日",
                                                                                       "death": "",
@@ -677,7 +677,7 @@
                                                                               },
                                                                               {
                                                                                 "id": 200020,
-                                                                                "image": "",
+                                                                                "image": "zp020002s.png",
                                                                                 "name": "李然根",
                                                                                 "birthday": "",
                                                                                 "death": "未知",
