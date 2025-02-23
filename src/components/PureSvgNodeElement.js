@@ -2,12 +2,8 @@ import React from 'react';
 import Card from './Card';
 
 class Family extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   tipView = (curID, nodeDatum, lorx, cy, left) => {
-    if (curID != nodeDatum.id) {
+    if (curID !== nodeDatum.id) {
       return (<></>);
     }
     return (
