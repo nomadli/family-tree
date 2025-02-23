@@ -1,97 +1,101 @@
 import React from 'react';
 import Card from './Card';
 
-const textLayout = {
-  vertical: {
-    ntitle: {
-      textAnchor: 'middle',
-      x: 0,
-      y: 5,
-    },
-    ititle: {
-      textAnchor: 'start',
-      x: 60,
-      y: 6,
-    },
-  },
-  horizontal: {
-    ntitle: {
-      textAnchor: 'start',
-      y: -60,
-    },
-    ititle: {
-      textAnchor: 'start',
-      y: -60,
-    },
-  },
-};
-
-const tipView = (curID, orientation, nodeDatum) => {
-  if (curID != nodeDatum.id) {
-    return(<></>);
+class Family extends React.Component {
+  constructor(props) {
+    super(props);
   }
-  return (
-    <Card orientation={orientation} nodeDatum={nodeDatum}/>
-  );
-};
 
-const nameNode = (nodeDatum, orientation, toggleNode, setID, curID, bgcolor) => {
-  return (
-    <React.Fragment>
-      <g onClick={toggleNode} onMouseEnter={() => setID(nodeDatum.id)} onMouseLeave={() => setID(0)}>
-        <circle r={50} fill={bgcolor} stroke={bgcolor}></circle>
+  tipView = (curID, nodeDatum, lorx, cy, left) => {
+    if (curID != nodeDatum.id) {
+      return (<></>);
+    }
+    return (
+      <Card nodeDatum={nodeDatum} lorx={lorx} cy={cy} left={left} />
+    );
+  };
+
+  nameNode = (node, bgcolor, ransform) => {
+    return (
+      <React.Fragment>
+        <circle cx={ransform.x} cy={ransform.y} r={50} fill={bgcolor} stroke={bgcolor} />
         <g className="rd3t-label">
-          <text className="rd3t-label__title" {...textLayout[orientation].ntitle}>
-            {nodeDatum.name}
+          <text className="rd3t-label__title" x={ransform.x} y={5 + ransform.y} textAnchor="middle">
+            {node.name}
           </text>
         </g>
-      </g>
-      {tipView(curID, orientation, nodeDatum)}
-    </React.Fragment>
-  );
-};
+      </React.Fragment>
+    );
+  };
 
-const imageNode = (nodeDatum, orientation, toggleNode, setID, curID, bgcolor) => {
-  return (
-    <React.Fragment>
-      <g onClick={toggleNode} onMouseEnter={() => setID(nodeDatum.id)} onMouseLeave={() => setID(0)}>
+  imageNode = (node, bgcolor, ransform) => {
+    return (
+      <React.Fragment>
         <defs>
           <clipPath id="circleView">
-            <circle cx="1" cy="1" r="50" />
+            <circle cx={1 + ransform.x} cy={1 + ransform.y} r="49" />
           </clipPath>
         </defs>
 
-        <circle r={51} fill={"transparent"} stroke={bgcolor}></circle>
-
-        <image href={`${process.env.PUBLIC_URL}/img/${nodeDatum.image}`} x={-50} y={-50} height={100} width={100} clipPath="url(#circleView)" />
-
+        <circle cx={ransform.x} cy={ransform.y} r={50} fill={"transparent"} stroke={bgcolor} />
+        <image href={`${process.env.PUBLIC_URL}/img/${node.image}`} x={-50 + ransform.x} y={-50 + ransform.y} height={100} width={100} clipPath="url(#circleView)" />
         <g className="rd3t-label">
-          <text className="rd3t-label__title" {...textLayout[orientation].ititle}>
-            {nodeDatum.name}
+          <text className="rd3t-label__title" x={ransform.x} y={-60+ransform.y} textAnchor="middle">
+            {node.name}
           </text>
         </g>
-      </g>
-      {tipView(curID, orientation, nodeDatum)}
-    </React.Fragment>
-  );
-}
-
-const unknowPartner = (nodeDatum, orientation, toggleNode, setID, curID, bgcolor) => {
-  if (nodeDatum.image) {
-    return imageNode(nodeDatum, orientation, toggleNode, setID, curID, bgcolor)
+      </React.Fragment>
+    );
   }
-  return nameNode(nodeDatum, orientation, toggleNode, setID, curID, bgcolor)
+
+  render() {
+    let { node, toggleNode, setID, curID, bgcolor } = this.props;
+    if (!node.partner) {
+      return (
+        <g onClick={toggleNode} onMouseEnter={() => setID(node.id)} onMouseLeave={() => setID(0)}>
+          {node.image ?
+            this.imageNode(node, bgcolor, { x: 0, y: 0 }) :
+            this.nameNode(node, bgcolor, { x: 0, y: 0 })
+          }
+          {this.tipView(curID, node, 60, 0, true)}
+        </g>
+      );
+    }
+    return (
+      <React.Fragment>
+        <g onClick={toggleNode} onMouseEnter={() => setID(node.id)} onMouseLeave={() => setID(0)}>
+          {node.image ?
+            this.imageNode(node, bgcolor, { x: 0, y: 0 }) :
+            this.nameNode(node, bgcolor, { x: 0, y: 0 })
+          }
+          {this.tipView(curID, node, -60, 0, false)}
+        </g>
+        <g onClick={toggleNode} onMouseEnter={() => setID(node.partner.id)} onMouseLeave={() => setID(0)}>
+          {node.partner.image ?
+            this.imageNode(node.partner, bgcolor, { x: 105, y: 0 }) :
+            this.nameNode(node.partner, bgcolor, { x: 105, y: 0 })
+          }
+          {this.tipView(curID, node.partner, 160, 0, true)}
+        </g>
+      </React.Fragment>
+    );
+  };
 };
 
-const PureSvgNodeElement = ({ nodeDatum, orientation, toggleNode, setID, curID}) => {
-  let bgcolor = "#6A9956";
+const PureSvgNodeElement = ({ nodeDatum, toggleNode, setID, curID }) => {
+  let props = {
+    bgcolor: "#6A9956",
+    node: nodeDatum,
+    toggleNode: toggleNode,
+    setID: setID,
+    curID: curID,
+  };
+
   if (nodeDatum.death) {
-    bgcolor = "#8B8B8B";
+    props.bgcolor = "#8B8B8B";
   }
-  if (!nodeDatum.partner) {
-    return unknowPartner(nodeDatum, orientation, toggleNode, setID, curID, bgcolor)
-  }
-  return unknowPartner(nodeDatum, orientation, toggleNode, setID, curID, bgcolor)
+
+  return <Family {...props} />;
 };
 
 export default PureSvgNodeElement;

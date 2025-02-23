@@ -71,7 +71,6 @@ const customNodeFnMapping = {
       <PureSvgNodeElement
         nodeDatum={rd3tProps.nodeDatum}
         toggleNode={rd3tProps.toggleNode}
-        orientation={configs.orientation} //horizontal vertical
         setID = {setID}
         curID = {curID}
       />
@@ -145,7 +144,7 @@ class Viewer extends Component {
                 ? rd3tProps => customNodeFnMapping[configurations.renderCustomNodeElement].fn(rd3tProps, configurations, this.setTipState, this.state.tipID)
                 : undefined
             } //mixed svg
-            orientation={configurations.orientation}
+            orientation={"vertical"}
             translate={{ x: this.state.translateX, y: this.state.translateY }}
             pathFunc={configurations.pathFunc} //step diagonal elbow straight
             collapsible={configurations.collapsible}

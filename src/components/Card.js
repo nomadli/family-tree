@@ -1,7 +1,25 @@
 import React from 'react';
 
 //font-family="Roboto-Bold, Roboto" font-size="8" inline-size="50"
-const textStyle = {
+const cardStyle = {
+  border: {
+    width: 300,
+    height: 200,
+    rx: 12,
+    ry: 12,
+    fill: 'url(#bgc)',
+    stroke: 'url(#bgc)',
+  },
+  imgBG:{
+    r: 50,
+    fill: 'white',
+    stroke: 'white'
+  },
+  img: {
+    clipPath: 'url(#iconc)',
+    height: 100,
+    width: 100,
+  },
   lable: {
     fill: '#FFFFFF',
     stroke: '#FFFFFF',
@@ -18,12 +36,16 @@ const textStyle = {
   },
 };
 
-const Card = ({ orientation, nodeDatum }) => {
+const Card = ({ nodeDatum, lorx, cy, left }) => {
   let lines = null;
   if (nodeDatum.biography) {
     lines = nodeDatum.biography.trim().split('\n');
   }
 
+  if (!left) {
+    lorx = lorx - 300
+  }
+  
   return (
     <React.Fragment>
       <defs>
@@ -32,31 +54,33 @@ const Card = ({ orientation, nodeDatum }) => {
           <stop offset="100%" stopColor="rgb(71, 84, 103)" />
         </linearGradient>
         <clipPath id="iconc">
-          <circle cx="120" cy="20" r="50" />
+          <circle cx={56+lorx} cy={cy} r="50"/>
         </clipPath>
       </defs>
-      <rect x={56} y={-80} width={360} height={200} rx={12} ry={12} fill="url(#bgc)" stroke="url(#bgc)" />
-      <circle cx={120} cy={20} r={50} fill={"white"} stroke={"white"}></circle>
+      <rect {...cardStyle.border} x={lorx} y={-100+cy}/>
+      <circle {...cardStyle.imgBG} cx={56+lorx} cy={cy}></circle>
       {nodeDatum.image ?
-        <image clipPath="url(#iconc)" x={70} y={-30} height={100} width={100} href={`${process.env.PUBLIC_URL}/img/${nodeDatum.image}`} /> :
+        <image {...cardStyle.img} x={6+lorx} y={-50+cy} href={`${process.env.PUBLIC_URL}/img/${nodeDatum.image}`} /> :
         <></>
       }
 
-      <text x={180} y={-50} {...textStyle.lable}>姓名:</text>
-      <text x={220} y={-50} {...textStyle.info}>{nodeDatum.name}</text>
+      <text x={110+lorx} y={-80+cy} {...cardStyle.lable}>姓名:</text>
+      <text x={150+lorx} y={-80+cy} {...cardStyle.info}>{nodeDatum.name}</text>
 
-      <text x={180} y={-20} {...textStyle.lable}>生辰:</text>
-      <text x={220} y={-20} {...textStyle.info}>{nodeDatum.birthday}</text>
+      <text x={110+lorx} y={-60+cy} {...cardStyle.lable}>生辰:</text>
+      <text x={150+lorx} y={-60+cy} {...cardStyle.info}>{nodeDatum.birthday}</text>
 
-      <text x={180} y={10} {...textStyle.lable}>仙逝:</text>
-      <text x={220} y={10} {...textStyle.info}>{nodeDatum.death}</text>
+      <text x={110+lorx} y={-40+cy} {...cardStyle.lable}>仙逝:</text>
+      <text x={150+lorx} y={-40+cy} {...cardStyle.info}>{nodeDatum.death}</text>
 
-      <text x={180} y={40} {...textStyle.lable}>性别:</text>
-      <text x={220} y={40} {...textStyle.info}>{nodeDatum.female ? "女" : "男"}</text>
+      <text x={110+lorx} y={-20+cy} {...cardStyle.lable}>性别:</text>
+      <text x={150+lorx} y={-20+cy} {...cardStyle.info}>{nodeDatum.female ? "女" : "男"}</text>
 
       {lines &&
         Object.entries(lines).map((str, idx) => (
-          <text key={idx} x={180} y={60 + 14 * idx} {...textStyle.info} fontSize={12}>{str[1]}</text>
+          idx >= 5 ?
+            <text key={idx} y={14 * idx} x={10+lorx} {...cardStyle.info} fontSize={12}>{str[1]}</text>:
+            <text key={idx} y={14 * idx} x={120+lorx} {...cardStyle.info} fontSize={12}>{str[1]}</text>
         ))
       };
     </React.Fragment>
