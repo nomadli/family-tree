@@ -1,0 +1,19 @@
+{
+    "buildCommand": "next build",
+    "installCommand": "npm install",
+    "outputDirectory": "./build",
+    "nodeVersion": "22.11.0",
+    "redirects": [
+      {
+        "source": "/test",
+        "destination": "/",
+        "statusCode": 301
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/family-tree/*",
+        "destination": "/:splat"
+      }
+    ]
+}
