@@ -34,7 +34,7 @@ class Family extends React.Component {
         </defs>
 
         <circle cx={transform.x} cy={transform.y} r={50} fill={"transparent"} stroke={bgcolor} />
-        <image href={`${process.env.PUBLIC_URL}/img/${node.image}`} x={-50 + transform.x} y={-50 + transform.y} height={100} width={100} clipPath={"url(#"+node.id+")"} />
+        <image href={`${process.env.PUBLIC_URL}/img/${node.image}`} x={-50 + transform.x} y={-50 + transform.y} height={100} width={100} clipPath={`url(#${node.id})`} />
         <g className="rd3t-label">
           <text className="rd3t-label__title" x={transform.x} y={-60+transform.y} textAnchor="middle">
             {node.name}
