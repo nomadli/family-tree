@@ -136,7 +136,7 @@ class Viewer extends Component {
           <h2>{configurations.title}</h2>
           {countNodes(0, Array.isArray(tree) ? tree[0] : tree)} 位家族成员.<br />
         </div>
-        <div ref={tc => (this.treeContainer = tc)} className="tree-container">
+        <div ref={tc => (this.treeContainer = tc)} className="tree-container" onPointerDown={() => this.setState({tipID:0})}>
           <MyTree
             data={tree}
             renderCustomNodeElement={

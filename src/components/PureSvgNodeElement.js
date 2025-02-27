@@ -1,9 +1,34 @@
 import React from 'react';
 import Card from './Card';
 
+const g_TouchDev = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+
 class Family extends React.Component {
+  constructor(props) {
+    super(props);
+    this.actions = {
+      touch: {
+        onPointerDown: (ev) => this.touchDownAction(this.props.node, this.props.curID, this.props.toggleNode, this.props.setID, ev),
+        onPointerUp: (ev) => this.touchUpAction(this.props.node, this.props.curID, ev),
+      },
+      mouse: {
+        onClick: this.props.toggleNode,
+        onMouseEnter: () => this.props.setID(this.props.node.id),
+        onMouseLeave: () => this.props.setID(0),
+      },
+      ptouch: {
+        onPointerDown: (ev) => this.touchDownAction(this.props.node.partner, this.props.curID, this.props.toggleNode, this.props.setID, ev),
+        onPointerUp: (ev) => this.touchUpAction(this.props.node.partner, this.props.curID, ev),
+      },
+      pmouse: {
+        onClick: this.props.toggleNode,
+        onMouseEnter: () => this.props.setID(this.props.node.partner.id),
+        onMouseLeave: () => this.props.setID(0),
+      }
+    };
+  }
   tipView = (curID, nodeDatum, lorx, cy, left) => {
-    if (curID !== nodeDatum.id) {
+    if (curID !== nodeDatum.id && curID !== -nodeDatum.id) {
       return (<></>);
     }
     return (
@@ -44,11 +69,28 @@ class Family extends React.Component {
     );
   }
 
+  touchUpAction = (node, curID, ev) => {
+    ev.stopPropagation();
+    if (curID !== 0) {
+      this.props.setID(-node.id);
+    } 
+  }
+
+  touchDownAction = (node, curID, toggleNode, setID, ev) => {
+    ev.stopPropagation();
+    if (-node.id === curID) {
+      setID(0)
+      toggleNode(ev)
+      return
+    }
+    setID(node.id)
+  }
+
   render() {
-    let { node, toggleNode, setID, curID, bgcolor } = this.props;
+    let { node, curID, bgcolor } = this.props;
     if (!node.partner) {
       return (
-        <g onClick={toggleNode} onMouseEnter={() => setID(node.id)} onMouseLeave={() => setID(0)}>
+        <g {...this.actions[g_TouchDev ? 'touch' : 'mouse']}>
           {node.image ?
             this.imageNode(node, bgcolor, { x: 0, y: 0 }) :
             this.nameNode(node, bgcolor, { x: 0, y: 0 })
@@ -59,14 +101,14 @@ class Family extends React.Component {
     }
     return (
       <React.Fragment>
-        <g onClick={toggleNode} onMouseEnter={() => setID(node.id)} onMouseLeave={() => setID(0)}>
+        <g {...this.actions[g_TouchDev ? 'touch' : 'mouse']}>
           {node.image ?
             this.imageNode(node, bgcolor, { x: 0, y: 0 }) :
             this.nameNode(node, bgcolor, { x: 0, y: 0 })
           }
           {this.tipView(curID, node, -60, 0, false)}
         </g>
-        <g onClick={toggleNode} onMouseEnter={() => setID(node.partner.id)} onMouseLeave={() => setID(0)}>
+        <g {...this.actions[g_TouchDev ? 'ptouch' : 'pmouse']}>
           {node.partner.image ?
             this.imageNode(node.partner, bgcolor, { x: 105, y: 0 }) :
             this.nameNode(node.partner, bgcolor, { x: 105, y: 0 })
