@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [18.x]
 
     steps:
     - uses: actions/checkout@v4.2.2
@@ -23,11 +23,12 @@ jobs:
       uses: actions/setup-node@v4.2.0
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
+        cache: 'npm'
+    - run: npm install
     - run: npm run build --if-present
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.7.2
       with:
         branch: gh-pages
-        folder: build
+        folder: dist
