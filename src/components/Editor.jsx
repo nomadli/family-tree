@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
-import {version} from '../../package.json';
+import packageJson from '../../package.json';
 import Switch from './Switch';
 import MixedNodeElement from './MixedNodeElement';
 import PureSvgNodeElement from './PureSvgNodeElement';
 import '../App.css';
 import {parseAncestryNotation, printAncestryNotation} from '../utils/TreeConverter';
 import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
+
+const version = packageJson.version;
 
 const customNodeFnMapping = {
   svg: {

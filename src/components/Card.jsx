@@ -60,7 +60,7 @@ const Card = ({ nodeDatum, lorx, cy, left }) => {
       <rect {...cardStyle.border} x={lorx} y={-100+cy}/>
       <circle {...cardStyle.imgBG} cx={56+lorx} cy={cy}></circle>
       {nodeDatum.image ?
-        <image {...cardStyle.img} x={6+lorx} y={-50+cy} href={`${process.env.PUBLIC_URL}/img/${nodeDatum.image}`} /> :
+        <image {...cardStyle.img} x={6+lorx} y={-50+cy} href={`/img/${nodeDatum.image}`} /> :
         <></>
       }
 
