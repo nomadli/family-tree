@@ -1,0 +1,11 @@
+# Cloudflare Pages configuration
+[build]
+command = "npm run build"
+cwd = "."
+watch_dir = "src"
+
+[build.environment]
+NODE_VERSION = "18"
+
+# 指定构建输出目录
+pages_build_output_dir = "dist"
