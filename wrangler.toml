@@ -1,9 +1,10 @@
 # Cloudflare Pages configuration
+pages_build_output_dir = "dist"
+
 [build]
 command = "npm run build"
 cwd = "."
 watch_dir = "src"
-pages_build_output_dir = "dist"
 
 [build.environment]
 NODE_VERSION = "18"
