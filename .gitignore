@@ -38,3 +38,4 @@ dist
 lib
 build
 public/docs
+/package-lock.json
